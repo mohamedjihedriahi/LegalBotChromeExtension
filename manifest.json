@@ -1,0 +1,21 @@
+{
+    "name": "LegalPlace",
+    "version": "1.0",
+    "manifest_version": 3,
+    "description": "legalplace chrome extension allowing to have conversation about any web page content",
+    "author": "LegalPlace",
+    "permissions": ["activeTab","tabs","background", "content_scripts", "network"],
+    "content_scripts": [
+        {
+          "matches": ["*://*/*"],
+          "js": ["stream-response.js"]
+        }
+      ],
+    "background": {
+        "service_worker": "server.js"
+      },
+    "action":{
+        "default_icon": "icon.png",
+        "default_popup": "index.html"
+    }
+}

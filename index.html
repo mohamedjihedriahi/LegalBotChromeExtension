@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <title>LegalPlace bot</title>
+  <script type="module" src="stream-response.js"></script>
+  <style>
+    #generateBtn {
+      background-color: #3498db; /* Blue */
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      cursor: pointer;
+      border-radius: 8px;
+      transition: background-color 0.3s;
+    }
+
+    #generateBtn:hover {
+      background-color: #2980b9; /* Darker blue on hover */
+    }
+
+    #stopBtn {
+      background-color: #f44336; /* Red */
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      cursor: pointer;
+      border-radius: 8px;
+      transition: background-color 0.3s;
+    }
+
+    #stopBtn:hover {
+      background-color: #d32f2f; /* Darker red on hover */
+    }
+
+  #promptInput {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    background-color: #f5f7fa;
+    color: #333;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.3s;
+    box-sizing: border-box; /* Include padding and border in element's total width/height */
+  }
+
+  #promptInput::placeholder {
+    color: #888;
+  }
+
+    #promptInput:focus {
+      border-color: #3498db;
+    }
+
+    #resultContainer {
+      margin-top: 20px;
+      padding: 12px;
+      border: 2px solid #ccc;
+      border-radius: 8px;
+      background-color: #f5f7fa;
+      overflow-y: auto;
+    }
+
+    #resultText {
+      color: #333;
+      font-size: 14px;
+      line-height: 1.5;
+      white-space: pre-line;
+    }
+  </style>
+</head>
+<body class="bg-white text-black min-h-screen flex items-center justify-center">
+  <div class="lg:w-1/2 2xl:w-1/3 p-8 rounded-md bg-gray-100">
+    <h1 class="text-3xl font-bold mb-6 flex items-center">
+      <img src="icon.png" alt="Icon" class="w-8 h-8 mr-2" />
+    </h1>
+    <div id="resultContainer">
+      <p class="text-gray-500 text-sm mb-2">Generated response:</p>
+      <p id="resultText"></p>
+    </div>
+    <input
+      type="text"
+      id="promptInput"
+      class="mt-4"
+      placeholder="Enter prompt..."
+    />
+    <div class="flex justify-center mt-4">
+      <button
+        id="generateBtn"
+        class="w-1/2 px-4 py-2 rounded-md bg-blue-500 text-white hover:bg-blue-700 focus:outline-none mr-2 disabled:opacity-75 disabled:cursor-not-allowed"
+      >
+        Generate
+      </button>
+      <button
+        id="stopBtn"
+        disabled
+        class="w-1/2 px-4 py-2 rounded-md bg-red-500 text-white hover:bg-red-700 focus:outline-none ml-2 disabled:opacity-75 disabled:cursor-not-allowed"
+      >
+        Stop
+      </button>
+    </div>
+  </div>
+</body>
+</html>
